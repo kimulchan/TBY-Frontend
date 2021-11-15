@@ -4,8 +4,12 @@ const global = createGlobalStyle`
 * {
     outline: none;
     box-sizing: border-box;
+    color: white;
 }
-
+#root{
+  background:linear-gradient(to bottom right,blue,pink);
+  min-height: 100vh;
+}
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
@@ -18,6 +22,7 @@ input[type=number] {
     width: 100%;
     height: 100%;
     }
+    
     table {
     border-collapse: collapse;
     border-spacing: 0;
