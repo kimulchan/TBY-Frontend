@@ -2,45 +2,42 @@ import styled from "styled-components";
 import FrontendImage from "../../assets/image/frontendImage.jpg";
 const MainPageBox = styled.div`
   width: 1300px;
+  min-height: 421px;
   display: flex;
   margin-left: auto;
-`
-const LeftBox = styled.div`
-  width: 45%;
+  flex-direction: column;
+  
 `
 const MainTitle = styled.p`
-  font-size: 100px;
+  font-size: 70px;
   font-weight: 700;
   margin-top: 70px;
 `
-const MainTitleBorder = styled.div`
-  width: 100px;
-  height: 30px;
-  border-bottom: 8px solid black;
+
+const Subheading = styled.div`
+  font-size: 30px;
+  margin-top: 10px;
+  font-weight: 600;
 `
-const CategoryDescription = styled.div`
-  margin-top: 280px;
+const Description = styled.div`
   font-size: 17px;
-  color:#5e5a5a;
+  margin-top: 30px;
+  width: 500px;
   margin-bottom: 50px;
 `
-const RightBox = styled.div`
-  width: 55%;
-  background-image: url(${FrontendImage});
-`
+
+
+
 
 function MainPage (){
 
   return(
     <MainPageBox>
-      <LeftBox>
-        <MainTitle>Frontend</MainTitle>
-        <MainTitleBorder/>
-        <CategoryDescription>frontend description</CategoryDescription>
-      </LeftBox>
-      <RightBox>
-
-      </RightBox>
+      
+        <MainTitle>Lending Page</MainTitle>
+        <Subheading>lending page subheading</Subheading>
+        <Description> description </Description>
+      
     </MainPageBox>
   )
 }
