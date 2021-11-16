@@ -9,3 +9,8 @@ export type subjectType = {
 export type categoryName = "FrontEnd" | "BackEnd" | "Android" | "iOS";
 
 export type categoryType = Record<categoryName,subjectType[]>;
+
+//modalType
+export interface modalType {
+  isSignupOpen:boolean
+}
