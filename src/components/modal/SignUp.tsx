@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import{Close} from "@styled-icons/evaicons-solid";
+import { useSelector } from "react-redux";
+import { reducerType } from "../../module/reducer";
+import useModal from "../../utils/hooks/modal";
 const Background = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.7);
   z-index:0;
 ` 
 
@@ -15,12 +18,13 @@ const ModalContainer = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 30rem;
-  padding: 16px;
+  width: 25rem;
+  padding: 25px;
   border-radius: 10px;
   text-align: center;
   font-size: 35px;
   font-weight: 600;
+  border: 2px solid white;
 `
 const CloseIcon = styled(Close)`
     position: absolute;
@@ -35,7 +39,7 @@ const InfoInput = styled.div`
   >p{
     font-size: 18px;
     font-weight: 600;
-    margin: 30px 0 10px 0;
+    margin: 20px 0 10px 0;
   }
 
   >input{
@@ -54,7 +58,7 @@ const SubmitButton = styled.button`
   width: 150px;
   height: 40px;
   border-radius: 20px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   border: none;
   margin-top: 40px;
@@ -63,23 +67,24 @@ const SubmitButton = styled.button`
   background:linear-gradient(to bottom right,blue,pink); 
 `
 const SignUpModal =()=>{
+  const setModal = useModal().setState
   return(
     <Background>
       <ModalContainer>
-        <div>Login</div>
-        <CloseIcon></CloseIcon>
+        <div style={{marginBottom:"20px"}}>LOGIN</div>
+        <CloseIcon onClick={setModal.setSignup}></CloseIcon>
         <InfoInput>
-          <p>id</p>
+          <p>ID</p>
           <input></input>
         </InfoInput>
         <InfoInput>
-          <p>password</p>
+          <p>PASSWORD</p>
           <input></input>
         </InfoInput>
-        <SubmitButton>login</SubmitButton>
+        <SubmitButton>LOGIN</SubmitButton>
       </ModalContainer>
-      
     </Background>
+
   );
 }
 
