@@ -9,6 +9,8 @@ const global = createGlobalStyle`
 #root{
   background:linear-gradient(to bottom right,blue,pink);
   min-height: 100vh;
+  width: 100%;
+  min-width: fit-content;
 }
 /* Firefox */
 input[type=number] {

@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import FrontendImage from "../../assets/image/frontendImage.jpg";
+
 const MainPageBox = styled.div`
-  width: 1300px;
+  width: 1064px;
   min-height: 421px;
   display: flex;
-  margin-left: auto;
+  margin: auto;
   flex-direction: column;
   
 `
