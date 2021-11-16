@@ -1,10 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { category } from "../../constance";
+import { setSignupModal, SIGNUP_SETMODAL } from "../../module/action/modal";
+import useModal from "../../utils/hooks/modal";
 
 const HeaderWrapper = styled.div`
   width: 1300px;
   height: 150px;
   margin: auto;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 `  
 const HeaderLogo = styled.p`
   font-size: 30px;
@@ -16,34 +23,38 @@ const HeaderLogo = styled.p`
 ` 
 const HeaderMenuBox = styled.div`
   display: flex;
-  margin: auto;
-
 `
 const HeaderMenu = styled.div`
   font-size: 17px;
   margin: 0 50px;
+  cursor: pointer;
+  font-weight: 600;
 `
 const LoginButton = styled.div`
-  font-size: 17px;
-  width: 120px;
   align-items: center;
   justify-content: center;
   display: flex;
+  font-size: 17px;
+  width: 120px;
+  height: 40px;
+  font-weight: 600;
+  border-radius: 1000px;
+  border: 3px solid white;
+  text-align: center;
+  cursor:pointer;
 `
-const MenuHover = styled.div`
-  
-`
+
 function Header (){
+  const modalSetState= useModal().setState;
   return (
     <HeaderWrapper>
-      <HeaderLogo>LOGO</HeaderLogo>
+      <Link to={"/"} ><HeaderLogo>LOGO</HeaderLogo></Link>
       <HeaderMenuBox>
-        <HeaderMenu>Frontend</HeaderMenu>
-        <HeaderMenu>Frontend</HeaderMenu>
-        <HeaderMenu>Frontend</HeaderMenu>
-        <HeaderMenu>Frontend</HeaderMenu>
+        {category.map((categoryName,i)=>
+          <Link to={`/lecture/${categoryName}`} key={i}><HeaderMenu >{categoryName}</HeaderMenu></Link>
+        )}
       </HeaderMenuBox>
-      <LoginButton>Sign up</LoginButton>
+      <LoginButton onClick={modalSetState.setSignup}>Sign up</LoginButton>
     </HeaderWrapper>
   );
 }
