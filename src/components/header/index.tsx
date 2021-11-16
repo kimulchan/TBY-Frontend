@@ -1,8 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { category } from "../../constance";
-import { setSignupModal, SIGNUP_SETMODAL } from "../../module/action/modal";
 import useModal from "../../utils/hooks/modal";
 
 const HeaderWrapper = styled.div`
@@ -46,6 +44,7 @@ const LoginButton = styled.div`
 
 function Header (){
   const modalSetState= useModal().setState;
+
   return (
     <HeaderWrapper>
       <Link to={"/"} ><HeaderLogo>LOGO</HeaderLogo></Link>
@@ -54,7 +53,7 @@ function Header (){
           <Link to={`/lecture/${categoryName}`} key={i}><HeaderMenu >{categoryName}</HeaderMenu></Link>
         )}
       </HeaderMenuBox>
-      <LoginButton onClick={modalSetState.setSignup}>Sign up</LoginButton>
+      <LoginButton onClick={modalSetState.setSignin}>Sign in</LoginButton>
     </HeaderWrapper>
   );
 }
