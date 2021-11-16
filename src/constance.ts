@@ -1,4 +1,5 @@
-import { categoryName, categoryType } from "./types"
+import { authModalType, categoryName, categoryType } from "./types"
+
 
 export const category:categoryName[]=["FrontEnd","BackEnd","Android","iOS",]
 
@@ -31,4 +32,42 @@ export const subject:categoryType = {
     subjectId:0,
     subjectName:"Swift"
   }]
+}
+//api uri
+export const uri={
+  signup:""
+}
+
+//auth modal constance
+
+export const authModal:authModalType = {
+  signin:{
+    title:"LOGIN",
+    discription:"아직 회원이 아니신가요?",
+    inputs:[{
+      infoName:"ID",
+      type:"id"
+    },{
+      infoName:"PASSWORD",
+      type:"password",
+      inputType:"password"
+      
+    }]
+  },
+  signup:{
+    title:"JOIN",
+    discription:"회원이신가요?",
+    inputs:[{
+      infoName:"ID",
+      type:"id"
+    },{
+      infoName:"PASSWORD",
+      type:"password",
+      inputType:"password"
+    },{
+      infoName:"PASSWORD CHACK",
+      type:"passwordCheck",
+      inputType:"password"
+    }]
+  }
 }
