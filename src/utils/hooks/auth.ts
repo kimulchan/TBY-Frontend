@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { setInput } from "../../module/action/auth";
+import { onJoin, onLogin, resetInput, setInput } from "../../module/action/auth";
 import { reducerType } from "../../module/reducer"
 import { authInputActionType } from "../../types";
 
@@ -10,7 +10,16 @@ const useAuth = ()=>{
   const dispatch = useDispatch();
   const setState= {
     setInput: useCallback((paylod:authInputActionType)=>dispatch(setInput({type:paylod.type,value:paylod.value})),[dispatch]),
-    onLogin:useCallback(()=>console.log(state.id,state.password,state.passwordCheck),[state])
+    resetInput : useCallback(()=>dispatch(resetInput()),[dispatch]),
+    onJoin: useCallback(()=>{
+      if(state.loginInfo.password===state.loginInfo.passwordCheck){
+        dispatch(onJoin.request({id:state.loginInfo.id,password:state.loginInfo.password,name:state.loginInfo.name}))
+      }
+      else{
+        alert("비밀번호를 다시 확인해 주세요!")
+      } 
+    },[dispatch,state]),
+    onLogin:useCallback(()=>dispatch(onLogin.request({id:state.loginInfo.id,password:state.loginInfo.password})),[dispatch, state.loginInfo.id, state.loginInfo.password])
   }
   return {state,setState};
 }
