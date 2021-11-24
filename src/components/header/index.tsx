@@ -1,12 +1,13 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { category } from "../../constance";
 import useModal from "../../utils/hooks/modal";
-
+import { useNavigate } from "react-router";
 const HeaderWrapper = styled.div`
   width: 1300px;
   height: 150px;
-  margin: auto;
+  margin:0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,20 +41,35 @@ const LoginButton = styled.div`
   border: 3px solid white;
   text-align: center;
   cursor:pointer;
+  transition: all 0.5s;
+  :hover{
+    background: rgba(0,0,0,0.3);
+  }
 `
 
 function Header (){
   const modalSetState= useModal().setState;
-
+  const navigate = useNavigate();
+  const LogMemo = useMemo(()=>{
+    return localStorage.getItem("accessToken")?
+    <LoginButton onClick={()=>{
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("isAdmin");
+    alert("로그아웃 되었습니다");
+    navigate("/");  
+  }}>Logout</LoginButton>
+    :<LoginButton onClick={modalSetState.setSignin}>Sign in</LoginButton>
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[modalSetState.setSignin, navigate,localStorage.getItem("accessToken")])
   return (
     <HeaderWrapper>
-      <Link to={"/"} ><HeaderLogo>LOGO</HeaderLogo></Link>
+      <Link to={"/"} ><HeaderLogo>TBY!</HeaderLogo></Link>
       <HeaderMenuBox>
         {category.map((categoryName,i)=>
           <Link to={`/lecture/${categoryName}`} key={i}><HeaderMenu >{categoryName}</HeaderMenu></Link>
         )}
       </HeaderMenuBox>
-      <LoginButton onClick={modalSetState.setSignin}>Sign in</LoginButton>
+      {LogMemo}
     </HeaderWrapper>
   );
 }
