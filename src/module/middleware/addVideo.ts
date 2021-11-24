@@ -9,10 +9,10 @@ export function* onAddVideoSaga (action:ReturnType<typeof onAddVideo.request>){
     const token = IsToken();
     yield call(addVideoApi,token as string,action.payload);
     yield put(onAddVideo.success())
-    
+    alert("성공하였습니다");
   }
   catch(error){
-    
+    alert("실패하였습니다");
     yield put(onAddVideo.failure())
   }
 }
