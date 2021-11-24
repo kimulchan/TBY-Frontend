@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getRequest = () => {
   const request = axios.create({
     timeout: 10000,
-    baseURL: 'http://10.220.158.125',
+    baseURL: 'http://10.220.158.125:3000',
   });
   return request;
 };
@@ -14,7 +14,7 @@ export const getRequestWithAccessToken = (
 ) => {
   const request = axios.create({
     timeout: 10000,
-    baseURL: 'http://10.220.158.125',
+    baseURL: 'http://10.220.158.125:3000',
     headers: {
       Authorization: `Bearer ${token}`,
     },
