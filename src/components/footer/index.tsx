@@ -4,9 +4,9 @@ const FooterBox = styled.div`
   width: 1300px;
   height: 150px;
   display: flex;
-  margin: auto;
+  margin:0 auto;
   justify-content: center;
-  
+  margin-top: auto;
 `
 const FooterItem = styled.div`
   font-size: 20px;
