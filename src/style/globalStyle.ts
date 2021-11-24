@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
+
 const global = createGlobalStyle`
 * {
     outline: none;
@@ -7,9 +8,11 @@ const global = createGlobalStyle`
     color: white;
 }
 #root{
-  background:linear-gradient(to bottom right,blue,pink);
+  background:linear-gradient(to bottom right,#513cef,#775ae7);
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   min-width: fit-content;
 }
 /* Firefox */
