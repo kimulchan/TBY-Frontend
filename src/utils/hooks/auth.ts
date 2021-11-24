@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { onJoin, onLogin, resetInput, setInput } from "../../module/action/auth";
+import { onAdminLogin, onJoin, onLogin, resetInput, setInput } from "../../module/action/auth";
 import { reducerType } from "../../module/reducer"
 import { authInputActionType } from "../../types";
 
@@ -19,7 +19,8 @@ const useAuth = ()=>{
         alert("비밀번호를 다시 확인해 주세요!")
       } 
     },[dispatch,state]),
-    onLogin:useCallback(()=>dispatch(onLogin.request({id:state.loginInfo.id,password:state.loginInfo.password})),[dispatch, state.loginInfo.id, state.loginInfo.password])
+    onLogin:useCallback(()=>dispatch(onLogin.request({id:state.loginInfo.id,password:state.loginInfo.password})),[dispatch, state.loginInfo.id, state.loginInfo.password]),
+    onAdminLogin:useCallback(()=>dispatch(onAdminLogin.request({id:state.loginInfo.id,password:state.loginInfo.password})),[dispatch, state.loginInfo])
   }
   return {state,setState};
 }
