@@ -4,7 +4,7 @@ const MainPageBox = styled.div`
   width: 1064px;
   min-height: 421px;
   display: flex;
-  margin: auto;
+  margin: 0 auto;
   flex-direction: column;
   
 `
@@ -26,17 +26,14 @@ const Description = styled.div`
   margin-bottom: 50px;
 `
 
-
-
-
 function MainPage (){
 
   return(
     <MainPageBox>
       
-        <MainTitle>Lending Page</MainTitle>
-        <Subheading>lending page subheading</Subheading>
-        <Description> description </Description>
+        <MainTitle>TBY!</MainTitle>
+        <Subheading>Teacher Blass You! </Subheading>
+        <Description></Description>
       
     </MainPageBox>
   )
