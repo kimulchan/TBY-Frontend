@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux";
-import { reducerType } from "../../module/reducer";
+import { authModal } from "../../constance";
 import useModal from "../../utils/hooks/modal";
-import SignUpModal from "./SignUp";
-
+import useAuth from "../../utils/hooks/auth";
+import AuthModals from "./auth";
 const Modal =()=>{
   const state = useModal().state;
+  const data = authModal;
+  const setAuth = useAuth().setState;
+  const authState = useAuth().state
   return (<>
-    {state.isSignupOpen && <SignUpModal/>}
+    {state.isSigninOpen && <AuthModals {...data.signin} {...setAuth} {...authState}/>}
+    {state.isSignupOpen && <AuthModals {...data.signup} {...setAuth} {...authState}/> }
     </>
   )
 }
