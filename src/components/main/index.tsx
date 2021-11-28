@@ -32,7 +32,7 @@ function MainPage (){
     <MainPageBox>
       
         <MainTitle>TBY!</MainTitle>
-        <Subheading>Teacher Blass You! </Subheading>
+        <Subheading>Teacher Bless You! </Subheading>
         <Description></Description>
       
     </MainPageBox>
